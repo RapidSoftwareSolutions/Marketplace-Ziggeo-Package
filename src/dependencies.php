@@ -1,0 +1,45 @@
+<?php
+// DIC configuration
+
+$container = $app->getContainer();
+
+// view renderer
+$container['renderer'] = function ($container) {
+    /** @var \Slim\Container $container */
+    $settings = $container->get('settings')['renderer'];
+    return new Slim\Views\PhpRenderer($settings['template_path']);
+};
+
+// monolog
+$container['logger'] = function ($container) {
+    /** @var \Slim\Container $container */
+    $settings = $container->get('settings')['logger'];
+    $logger = new Monolog\Logger($settings['name']);
+    $logger->pushProcessor(new Monolog\Processor\UidProcessor());
+    $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
+    return $logger;
+};
+
+//Guzzle HTTP client
+$container['httpClient'] = function() {
+    $guzzle = new GuzzleHttp\Client();
+    return $guzzle;
+};
+
+//Pagination
+$container['pager'] = function() {
+    $pager = new Models\NextPage();
+    return $pager;
+};
+
+//Json normalize
+$container['toJson'] = function() {
+    $toJson = new Models\normilizeJson();
+    return $toJson;
+};
+
+//validate request
+$container['validation'] = function() {
+    $validate = new Models\checkRequest();
+    return $validate;
+};

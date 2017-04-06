@@ -1,0 +1,773 @@
+{
+  "package": "Ziggeo",
+  "tagline": "Ziggeo API",
+  "description": "Capture, curate and manage asynchronous videos/playbacks.",
+  "image": "https://logo.clearbit.com/ziggeo.com?s=128",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Ziggeo-Package",
+  "keywords": [
+    "API",
+    "asynchronous",
+    "camera",
+    "upload",
+    "video",
+    "webcam"
+  ],
+  "accounts": {
+    "domain": "ziggeo.com",
+    "credentials": [
+      "appToken",
+      "appPrivateKey",
+      "appEncryptionKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getVideos",
+      "description": "The videos resource allows you to access all single videos. Each video may contain more than one stream.",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "Number",
+          "info": "Limit the number of returned videos. Can be set up to 100.",
+          "required": false
+        },
+        {
+          "name": "skip",
+          "type": "Number",
+          "info": "Skip the first [n] entries.",
+          "required": false
+        },
+        {
+          "name": "reverse",
+          "type": "Boolean",
+          "info": "Reverse the order in which videos are returned.",
+          "required": false
+        },
+        {
+          "name": "states",
+          "type": "String",
+          "info": "Filter videos by state",
+          "required": false
+        },
+        {
+          "name": "tags",
+          "type": "String",
+          "info": "Filter the search result to certain tags, encoded as a comma-separated string",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleVideo",
+      "description": "Get a single video by token or key.",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video token or key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createVideo",
+      "description": "Create a new video.",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "File",
+          "info": "Video file to be uploaded",
+          "required": true
+        },
+        {
+          "name": "minDuration",
+          "type": "String",
+          "info": "Minimal duration of video",
+          "required": false
+        },
+        {
+          "name": "maxDuration",
+          "type": "String",
+          "info": "Maximal duration of video",
+          "required": false
+        },
+        {
+          "name": "tags",
+          "type": "String",
+          "info": "Video Tags",
+          "required": false
+        },
+        {
+          "name": "key",
+          "type": "String",
+          "info": "Unique name of video",
+          "required": false
+        },
+        {
+          "name": "volatile",
+          "type": "Boolean",
+          "info": "Automatically removed this video if it remains empty",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteVideo",
+      "description": "Delete video by ID or Key",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateVideo",
+      "description": "Update video by ID or Key",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "minDuration",
+          "type": "String",
+          "info": "Minimal duration of video",
+          "required": false
+        },
+        {
+          "name": "maxDuration",
+          "type": "String",
+          "info": "Maximal duration of video",
+          "required": false
+        },
+        {
+          "name": "tags",
+          "type": "String",
+          "info": "Video Tags",
+          "required": false
+        },
+        {
+          "name": "key",
+          "type": "String",
+          "info": "Unique name of video",
+          "required": false
+        },
+        {
+          "name": "volatile",
+          "type": "Boolean",
+          "info": "Automatically removed this video if it remains empty",
+          "required": false
+        },
+        {
+          "name": "expirationDays",
+          "type": "String",
+          "info": "After how many days will this video be deleted",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getStreams",
+      "description": "Get All Streams",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "state",
+          "type": "String",
+          "info": "Filter Streams by state",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleStream",
+      "description": "Get Stream",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "streamId",
+          "type": "String",
+          "info": "Stream ID",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createStream",
+      "description": "Create Stream",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "file",
+          "info": "File",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteStream",
+      "description": "Delete Stream",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "file",
+          "info": "File",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "attachImageToStream",
+      "description": "Attach image to stream",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "file",
+          "info": "File",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createAuthtoken",
+      "description": "Create new Authtoken",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "volatile",
+          "type": "Boolean",
+          "info": "Will this object automatically be deleted if it remains empty?",
+          "required": false
+        },
+        {
+          "name": "hidden",
+          "type": "Boolean",
+          "info": "If hidden, the token cannot be used directly.",
+          "required": false
+        },
+        {
+          "name": "expirationDate",
+          "type": "String",
+          "info": "Expiration date for the auth token",
+          "required": false
+        },
+        {
+          "name": "usageExperitationTime",
+          "type": "Number",
+          "info": "For how many seconds do you want the session to exist for?",
+          "required": false
+        },
+        {
+          "name": "sessionLimit",
+          "type": "Number",
+          "info": "Maximal number of sessions",
+          "required": false
+        },
+        {
+          "name": "grants",
+          "type": "String",
+          "info": "Permissions this tokens grants",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAuthtoken",
+      "description": "Get single Authtoken",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "authTokenId",
+          "type": "String",
+          "info": "Authtoken id",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateAuthtoken",
+      "description": "Update Authtoken",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "authTokenId",
+          "type": "String",
+          "info": "Authtoken id",
+          "required": true
+        },
+        {
+          "name": "volatile",
+          "type": "Boolean",
+          "info": "Will this object automatically be deleted if it remains empty?",
+          "requreid": false
+        },
+        {
+          "name": "hidden",
+          "type": "Boolean",
+          "info": "If hidden, the token cannot be used directly.",
+          "required": false
+        },
+        {
+          "name": "expirationDate",
+          "type": "String",
+          "info": "Expiration date for the auth token",
+          "required": false
+        },
+        {
+          "name": "usageExperitationTime",
+          "type": "Number",
+          "info": "For how many seconds do you want the session to exist for?",
+          "required": false
+        },
+        {
+          "name": "sessionLimit",
+          "type": "Number",
+          "info": "Maximal number of sessions",
+          "required": false
+        },
+        {
+          "name": "grants",
+          "type": "String",
+          "info": "Permissions this tokens grants",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteAuthtoken",
+      "description": "Delete Authtoken",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "authTokenId",
+          "type": "String",
+          "info": "Authtoken id",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "pushVideoToPushService",
+      "description": "Push video and streams (depends on settings) to service (DropBox, Google drive, ftp etc).",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "serviceToken",
+          "type": "String",
+          "info": "Push service token. You can find it in Manage option of you application at Ziggeo.com after creation Integration and Push Service.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "pushStreamToPushService",
+      "description": "Push stream to service (DropBox, Google drive, ftp etc).",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "streamId",
+          "type": "String",
+          "info": "Stream ID",
+          "required": true
+        },
+        {
+          "name": "serviceToken",
+          "type": "String",
+          "info": "Push service token. You can find it in Manage option of you application at Ziggeo.com after creation Integration and Push Service.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
