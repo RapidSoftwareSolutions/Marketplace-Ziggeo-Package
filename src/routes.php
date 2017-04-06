@@ -9,7 +9,6 @@ $routes = [
     'getSingleStream',
     'createStream',
     'deleteStream',
-    'attachImageToStream',
     'createAuthtoken',
     'getAuthtoken',
     'updateAuthtoken',
