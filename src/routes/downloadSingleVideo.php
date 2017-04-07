@@ -62,8 +62,9 @@ $app->post('/api/Ziggeo/downloadSingleVideo', function ($request, $response) {
         $result['contextWrites']['to']['status_msg'] = json_decode($exception->getResponse()->getBody());
 
     } catch (Exception $exception) {
-        $request['callback'] = 'error';
-        $result['contextWrites']['to'] = $exception->getMessage();
+        $result['callback'] = 'error';
+        $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+        $result['contextWrites']['to']['status_msg'] = $exception->getMessage();
     }
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
