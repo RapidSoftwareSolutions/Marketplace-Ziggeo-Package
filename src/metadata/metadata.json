@@ -385,8 +385,8 @@
         },
         {
           "name": "file",
-          "type": "file",
-          "info": "File",
+          "type": "File",
+          "info": "Video file to be uploaded",
           "required": true
         }
       ],
@@ -424,49 +424,9 @@
           "required": true
         },
         {
-          "name": "file",
-          "type": "file",
-          "info": "File",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "attachImageToStream",
-      "description": "Attach image to stream",
-      "args": [
-        {
-          "name": "appToken",
-          "type": "credentials",
-          "info": "App Token",
-          "required": true
-        },
-        {
-          "name": "appPrivateKey",
-          "type": "credentials",
-          "info": "App Private Key",
-          "required": true
-        },
-        {
-          "name": "videoId",
+          "name": "streamId",
           "type": "String",
-          "info": "Video ID or Key",
-          "required": true
-        },
-        {
-          "name": "file",
-          "type": "file",
-          "info": "File",
+          "info": "Stream ID",
           "required": true
         }
       ],
@@ -755,6 +715,154 @@
           "name": "serviceToken",
           "type": "String",
           "info": "Push service token. You can find it in Manage option of you application at Ziggeo.com after creation Integration and Push Service.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "downloadSingleVideo",
+      "description": "Get link to download video file",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "downloadVideoThumbnail",
+      "description": "Get link to download video thumbnail file",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "downloadStreamVideo",
+      "description": "Get link to download stream video file",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "streamId",
+          "type": "String",
+          "info": "Stream ID",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "downloadStreamThumbnail",
+      "description": "Get link to download stream thumbnail file",
+      "args": [
+        {
+          "name": "appToken",
+          "type": "credentials",
+          "info": "App Token",
+          "required": true
+        },
+        {
+          "name": "appPrivateKey",
+          "type": "credentials",
+          "info": "App Private Key",
+          "required": true
+        },
+        {
+          "name": "videoId",
+          "type": "String",
+          "info": "Video ID or Key",
+          "required": true
+        },
+        {
+          "name": "streamId",
+          "type": "String",
+          "info": "Stream ID",
           "required": true
         }
       ],

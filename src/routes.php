@@ -15,6 +15,10 @@ $routes = [
     'deleteAuthtoken',
     'pushVideoToPushService',
     'pushStreamToPushService',
+    'downloadSingleVideo',
+    'downloadVideoThumbnail',
+    'downloadStreamVideo',
+    'downloadStreamThumbnail',
     'metadata'
 ];
 foreach($routes as $file) {

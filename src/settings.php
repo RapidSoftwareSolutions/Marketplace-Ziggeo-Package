@@ -16,6 +16,15 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         'apiUrl' => 'https://srvapi.ziggeo.com/v1',
+        'uploadServiceUrl' => 'http://104.198.149.144:8080',
+        'extensions' => [
+            'image/gif' => 'gif',
+            'image/jpeg' => 'jpg',
+            'image/png' => 'png',
+            'video/mp4' => 'mp4',
+            'video/ogg' => 'ogg',
+            'video/3gpp' => '3gp'
+        ]
     ],
 ];
 

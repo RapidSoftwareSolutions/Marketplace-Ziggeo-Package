@@ -95,7 +95,7 @@ Create Stream
 | appToken     | credentials| App Token
 | appPrivateKey| credentials| App Private Key
 | videoId      | String     | Video ID or Key
-| file         | file       | File
+| file         | File       | Video file to be uploaded
 
 ## Ziggeo.deleteStream
 Delete Stream
@@ -105,7 +105,7 @@ Delete Stream
 | appToken     | credentials| App Token
 | appPrivateKey| credentials| App Private Key
 | videoId      | String     | Video ID or Key
-| file         | file       | File
+| streamID     | String     | Stream ID
 
 ## Ziggeo.createAuthtoken
 Create new Authtoken
@@ -175,3 +175,40 @@ Push stream to service (DropBox, Google drive, ftp etc).
 | streamId     | String     | Stream ID
 | serviceToken | String     | Push service token. You can find it in Manage option of you application at Ziggeo.com after creation Integration and Push Service.
 
+## Ziggeo.downloadSingleVideo
+Get link to download video file
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| appToken     | credentials| App Token
+| appPrivateKey| credentials| App Private Key
+| videoId      | String     | Video ID or Key
+
+## Ziggeo.downloadVideoThumbnail
+Get link to download video thumbnail file
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| appToken     | credentials| App Token
+| appPrivateKey| credentials| App Private Key
+| videoId      | String     | Video ID or Key
+
+## Ziggeo.downloadStreamVideo
+Get link to download stream video file
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| appToken     | credentials| App Token
+| appPrivateKey| credentials| App Private Key
+| videoId      | String     | Video ID or Key
+| streamId     | String     | Stream ID
+
+## Ziggeo.downloadStreamThumbnail
+Get link to download stream thumbnail file
+
+| Field        | Type       | Description
+|--------------|------------|----------
+| appToken     | credentials| App Token
+| appPrivateKey| credentials| App Private Key
+| videoId      | String     | Video ID or Key
+| streamId     | String     | Stream ID
