@@ -15,8 +15,6 @@ $app->post('/api/Ziggeo/downloadStreamVideo', function ($request, $response) {
     }
 
     $url = $settings['apiUrl'] . "/videos/" . $postData['args']['videoId'] . "/streams/" . $postData['args']['streamId']  . "/video";
-//    $z = new Ziggeo(1,2);
-//    $z->streams()->download_video()
 
     try {
         /** @var GuzzleHttp\Client $client */
@@ -29,12 +27,15 @@ $app->post('/api/Ziggeo/downloadStreamVideo', function ($request, $response) {
         $vendorResponseBody = $vendorResponse->getBody()->getContents();
         if ($vendorResponse->getStatusCode() == 200) {
             $size = $vendorResponse->getHeader('Content-Length')[0];
-            $contentType = $vendorResponse->getHeader('Content-Type')[0];
+            $contentDisposition = $vendorResponse->getHeader('Content-Disposition')[0];
+            $contentDisposition = str_replace("attachment", "", $contentDisposition);
+            $contentDisposition = str_replace('filename=', "", $contentDisposition);
+            $contentDisposition = str_replace(';', "", $contentDisposition);
             $uploadServiceResponse = $client->post($settings['uploadServiceUrl'], [
                 'multipart' => [
                     [
                         "name" => "file",
-                        "filename" => bin2hex(random_bytes(5)) . '.' . $settings['extensions'][$contentType],
+                        "filename" => trim($contentDisposition),
                         "contents" => $vendorResponseBody
                     ],
                     [
