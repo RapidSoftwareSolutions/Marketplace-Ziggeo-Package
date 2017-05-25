@@ -30,8 +30,13 @@ $app->post('/api/Ziggeo/getVideos', function ($request, $response) {
     if (!empty($postData['args']['states'])) {
         $params['states'] = $postData['args']['states'];
     }
-    if (isset($postData['args']['tags']) && strlen($postData['args']['tags']) > 0) {
-        $params['tags'] = $postData['args']['args'];
+    if (!empty($postData['args']['tags'])) {
+        if (is_array($postData['args']['tags'])) {
+            $params['tags'] = implode(',', $postData['args']['tags']);
+        }
+        else {
+            $params['tags'] = $postData['args']['tags'];
+        }
     }
 
     try {

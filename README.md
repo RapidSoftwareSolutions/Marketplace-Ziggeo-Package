@@ -18,7 +18,7 @@ The videos resource allows you to access all single videos. Each video may conta
 | skip         | Number     | Skip the first [n] entries.
 | reverse      | Boolean    | Reverse the order in which videos are returned.
 | states       | String     | Filter videos by state
-| tags         | String     | Filter the search result to certain tags, encoded as a comma-separated string
+| tags         | Array      | Filter the search result to certain tags, encoded as a comma-separated string
 
 ## Ziggeo.getSingleVideo
 Get a single video by token or key.
@@ -39,7 +39,7 @@ Create a new video.
 | file         | File       | Video file to be uploaded
 | minDuration  | String     | Minimal duration of video
 | maxDuration  | String     | Maximal duration of video
-| tags         | String     | Video Tags
+| tags         | Array      | Video Tags
 | key          | String     | Unique name of video
 | volatile     | Boolean    | Automatically removed this video if it remains empty
 
@@ -62,7 +62,7 @@ Update video by ID or Key
 | videoId       | String     | Video ID or Key
 | minDuration   | String     | Minimal duration of video
 | maxDuration   | String     | Maximal duration of video
-| tags          | String     | Video Tags
+| tags          | Array      | Video Tags
 | key           | String     | Unique name of video
 | volatile      | Boolean    | Automatically removed this video if it remains empty
 | expirationDays| String     | After how many days will this video be deleted

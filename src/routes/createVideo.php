@@ -35,9 +35,15 @@ $app->post('/api/Ziggeo/createVideo', function ($request, $response) {
         ];
     }
     if (!empty($postData['args']['tags'])) {
+        if (is_array($postData['args']['tags'])) {
+            $tags = implode(',', $postData['args']['tags']);
+        }
+        else {
+            $tags = $postData['args']['tags'];
+        }
         $formData[] = [
             "name" => "tags",
-            "contents" => $postData['args']['tags']
+            "contents" => $tags
         ];
     }
     if (!empty($postData['args']['key'])) {

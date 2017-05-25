@@ -63,9 +63,14 @@
         },
         {
           "name": "tags",
-          "type": "String",
+          "type": "List",
           "info": "Filter the search result to certain tags, encoded as a comma-separated string",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Tag"
+          }
         }
       ],
       "callbacks": [
@@ -149,9 +154,14 @@
         },
         {
           "name": "tags",
-          "type": "String",
+          "type": "List",
           "info": "Video Tags",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Tag"
+          }
         },
         {
           "name": "key",
@@ -247,9 +257,14 @@
         },
         {
           "name": "tags",
-          "type": "String",
+          "type": "List",
           "info": "Video Tags",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Tag"
+          }
         },
         {
           "name": "key",
