@@ -69,7 +69,8 @@
           "structure": {
             "name": "tag",
             "type": "String",
-            "info": "Tag"
+            "info": "Tag",
+            "required": false
           }
         }
       ],
@@ -160,7 +161,8 @@
           "structure": {
             "name": "tag",
             "type": "String",
-            "info": "Tag"
+            "info": "Tag",
+            "required": false
           }
         },
         {
@@ -263,7 +265,8 @@
           "structure": {
             "name": "tag",
             "type": "String",
-            "info": "Tag"
+            "info": "Tag",
+            "required": false
           }
         },
         {

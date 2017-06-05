@@ -7,6 +7,16 @@ Capture, curate and manage asynchronous videos/playbacks.
 ## How to get credentials: 
 1. Get credentials from [Ziggeo  App overview ](https://ziggeo.com) 
  
+
+## Custom datatypes: 
+|Datatype|Description|Example
+|--------|-----------|----------
+|Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+|Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+|List|Simple array|```["123", "sample"]``` 
+|Select|String with predefined values|```sample```
+|Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+ 
 ## Ziggeo.getVideos
 The videos resource allows you to access all single videos. Each video may contain more than one stream.
 
@@ -18,7 +28,7 @@ The videos resource allows you to access all single videos. Each video may conta
 | skip         | Number     | Skip the first [n] entries.
 | reverse      | Boolean    | Reverse the order in which videos are returned.
 | states       | String     | Filter videos by state
-| tags         | Array      | Filter the search result to certain tags, encoded as a comma-separated string
+| tags         | List       | Filter the search result to certain tags, encoded as a comma-separated string
 
 ## Ziggeo.getSingleVideo
 Get a single video by token or key.
@@ -39,7 +49,7 @@ Create a new video.
 | file         | File       | Video file to be uploaded
 | minDuration  | String     | Minimal duration of video
 | maxDuration  | String     | Maximal duration of video
-| tags         | Array      | Video Tags
+| tags         | List       | Video Tags
 | key          | String     | Unique name of video
 | volatile     | Boolean    | Automatically removed this video if it remains empty
 
@@ -62,7 +72,7 @@ Update video by ID or Key
 | videoId       | String     | Video ID or Key
 | minDuration   | String     | Minimal duration of video
 | maxDuration   | String     | Maximal duration of video
-| tags          | Array      | Video Tags
+| tags          | List       | Video Tags
 | key           | String     | Unique name of video
 | volatile      | Boolean    | Automatically removed this video if it remains empty
 | expirationDays| String     | After how many days will this video be deleted
